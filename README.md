@@ -1,3 +1,16 @@
+Write -done
+Login,Register,Logout -done
+Main-done
+
+-All view post  
+-Single post --done
+Edit post
+
+( GG sign )
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
