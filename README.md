@@ -1,13 +1,8 @@
-Write -done
-Login,Register,Logout -done
-Main-done
-
--All view post  
--Single post --done
-Edit post
-
-( GG sign )
-
+Write Post
+Login,Register,Logout Firebase
+Main Page 
+All view post  
+Single post 
 
 
 
