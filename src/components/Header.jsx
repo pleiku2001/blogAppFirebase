@@ -3,12 +3,13 @@ import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
+import { logout } from "../firebase";
 
 const navigation = [
   { name: "Trang chủ", href: "/", current: true },
-  { name: "Bài viết", href: "/posts", current: false },
-  { name: "Văn hóa", href: "/", current: false },
-  { name: "LifeStyle", href: "/", current: false },
+  { name: "Blog", href: "/posts", current: false },
+  { name: "Tin tức ", href: "/news", current: false },
+  { name: "Phim ảnh", href: "https://web-movie-api.vercel.app/", current: false },
 ];
 
 function classNames(...classes) {
@@ -25,6 +26,7 @@ function Header() {
     // console.log("hello");
     navigate("/");
     dispatch({ type: "LOGOUT" });
+    logout()
   };
   // console.log(currentUser)
 
@@ -53,7 +55,7 @@ function Header() {
                   <Link to={"/"}>
                     <img
                       className="hidden h-8 w-auto lg:block rounded-full w-8"
-                      src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1064&q=80"
+                      src="https://e7.pngegg.com/pngimages/441/658/png-clipart-computer-icons-blog-social-media-text-orange-thumbnail.png"
                       alt="Your Company"
                     />
                   </Link>
@@ -92,7 +94,7 @@ function Header() {
                           <span className="sr-only">Open user menu</span>
                           <img
                             className="h-8 w-8 rounded-full"
-                            src="https://images.unsplash.com/photo-1661348543336-603adab2125b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1175&q=80"
+                            src={currentUser?.photoURL || "https://cdn-icons-png.flaticon.com/512/149/149071.png"} 
                             alt=""
                           />
                         </Menu.Button>
@@ -110,7 +112,7 @@ function Header() {
                           <Menu.Item>
                             {({ active }) => (
                               <a
-                                href="/"
+                                href="/user"
                                 className={classNames(
                                   active ? "bg-gray-100" : "",
                                   "block px-4 py-2 text-sm text-gray-700"

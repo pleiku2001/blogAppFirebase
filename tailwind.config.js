@@ -1,5 +1,5 @@
 module.exports = {
-  content: ["./src/**/*.{html,js,jsx}"],
+  content: ["./src/**/*.{html,js,jsx}",'node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {
       fontFamily:{
@@ -12,7 +12,7 @@ module.exports = {
     },
   },
   plugins: [
-  
+     require('flowbite/plugin')
   ],
 }
 

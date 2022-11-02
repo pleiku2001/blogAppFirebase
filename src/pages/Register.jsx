@@ -58,17 +58,9 @@ export default function Register() {
               alt="Your Company"
             />
             <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">
-              Register to your account
+              Đăng kí 
             </h2>
-            <p className="mt-2 text-center text-sm text-gray-600">
-              Or{" "}
-              <a
-                href="/"
-                className="font-medium text-indigo-600 hover:text-indigo-500"
-              >
-                start your 14-day free trial
-              </a>
-            </p>
+            
           </div>
           <form className="mt-8 space-y-6" action="#" method="POST">
             <input type="hidden" name="remember" defaultValue="true" />
@@ -84,7 +76,7 @@ export default function Register() {
                   autoComplete="email"
                   required
                   className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                  placeholder="Email address"
+                  placeholder="Nhập Email "
                   onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
@@ -100,7 +92,7 @@ export default function Register() {
                   autoComplete="current-password"
                   required
                   className="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                  placeholder="Password"
+                  placeholder="Nhập Password"
                 />
               </div>
               <div>
@@ -115,61 +107,20 @@ export default function Register() {
                   autoComplete="current-password"
                   required
                   className="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                  placeholder="Re-Password"
+                  placeholder="Nhập lại Password"
                 />
               </div>
-              {/* <div>
-                <label htmlFor="username" className="sr-only">
-                  User Name
-                </label>
-                <input
-                  id="username"
-                  name="username"
-                  type="password"
-                  autoComplete="current-username"
-                  required
-                  className="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                  placeholder="User Name"
-                />
-              </div>
-              <div>
-                <label htmlFor="username" className="sr-only">
-                  File
-                </label>
-                <input
-                  id="file"
-                  name="file"
-                  type="file"
-                  autoComplete="current-file"
-                  required
-                  className="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                  placeholder="Image"
-                />
-              </div> */}
+            
             </div>
 
-            <div className="flex items-center justify-between">
-              <div className="flex items-center">
-                <input
-                  id="remember-me"
-                  name="remember-me"
-                  type="checkbox"
-                  className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
-                />
-                <label
-                  htmlFor="remember-me"
-                  className="ml-2 block text-sm text-gray-900"
-                >
-                  Remember me
-                </label>
-              </div>
-
+            <div className="flex items-center justify-end">
+             
               <div className="text-sm">
                 <Link
                   to={"/login"}
                   className="font-medium text-indigo-600 hover:text-indigo-500"
                 >
-                  Sign in
+                  Đăng nhập
                 </Link>
               </div>
             </div>
@@ -186,7 +137,7 @@ export default function Register() {
                     aria-hidden="true"
                   />
                 </span>
-                Sign up
+                Đăng kí
               </button>
             </div>
           </form>
@@ -232,10 +183,6 @@ export default function Register() {
                     >
                       Close
                     </button>
-                     
-                   
-                  
-                   
                   
                   </div>
                 </div>

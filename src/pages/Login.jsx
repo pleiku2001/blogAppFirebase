@@ -1,12 +1,13 @@
 import { LockClosedIcon } from "@heroicons/react/20/solid";
 import { signInWithEmailAndPassword } from "firebase/auth";
-
-import { auth } from "../firebase";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth, signInWithGoogle } from "../firebase";
 import { useNavigate,Link } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 export default function Login() {
 
+  const { currentUser } = useContext(AuthContext);
 
   const [error,setError] = useState(false)
   const [email,setEmail]= useState('')
@@ -34,6 +35,21 @@ export default function Login() {
     });
   }
 
+  // const SignGG = (e)=>{
+  //   e.preventDefault()
+
+  // }
+  const [user, loading] = useAuthState(auth);
+  if(user !== null){
+
+    localStorage.setItem("user", JSON.stringify(user));
+    navigate('/')
+    window.location.reload(false);
+  }
+
+
+  // console.log(user)
+
   return (
     <>
       <div className="flex min-h-full items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
@@ -45,24 +61,16 @@ export default function Login() {
               alt="Your Company"
             />
             <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-gray-900">
-              Sign in to your account
+              Đăng nhập
             </h2>
-            <p className="mt-2 text-center text-sm text-gray-600">
-              Or{" "}
-              <a
-                href="/"
-                className="font-medium text-indigo-600 hover:text-indigo-500"
-              >
-                start your 14-day free trial
-              </a>
-            </p>
+           
           </div>
           <form className="mt-8 space-y-6" action="#" method="POST">
             <input type="hidden" name="remember" defaultValue="true" />
             <div className="-space-y-px rounded-md shadow-sm">
               <div>
                 <label htmlFor="email-address" className="sr-only">
-                  Email address
+                  Nhập Email 
                 </label>
                 <input
                   id="email-address"
@@ -71,7 +79,7 @@ export default function Login() {
                   autoComplete="email"
                   required
                   className="relative block w-full appearance-none rounded-none rounded-t-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                  placeholder="Email address"
+                  placeholder="Nhập Email "
                   onChange={(e)=>{setEmail(e.target.value)}}
 
                 />
@@ -87,38 +95,34 @@ export default function Login() {
                   autoComplete="current-password"
                   required
                   className="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm"
-                  placeholder="Password"
+                  placeholder="Nhập Password"
                   onChange={(e)=>{setPassword(e.target.value)}}
                 />
               </div>
             </div>
 
             <div className="flex items-center justify-between">
-              <div className="flex items-center">
-                <input
-                  id="remember-me"
-                  name="remember-me"
-                  type="checkbox"
-                  className="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
-                />
-                <label
-                  htmlFor="remember-me"
-                  className="ml-2 block text-sm text-gray-900"
-                >
-                  Remember me
-                </label>
+             
+              <div className="hover:text-red-500 text-red-400 hover:cursor-pointer" onClick={signInWithGoogle}>
+                  Đăng nhập với Google
               </div>
-
               <div className="text-sm">
                 <Link
                   to={"/register"}
                   className="font-medium text-indigo-600 hover:text-indigo-500"
                 >
-                  Register
+                  Đăng kí
                 </Link>
               </div>
             </div>
-
+            {error ? ( 
+              <div className="text-center text-red-600 font-bold">
+              Vui lòng nhập lại
+            </div>
+            ) : (
+              <></>
+            )}
+            
             <div>
               <button
                 onClick={handleClick}
@@ -131,7 +135,7 @@ export default function Login() {
                     aria-hidden="true"
                   />
                 </span>
-                Sign in
+                Đăng nhập
               </button>
             </div>
           </form>

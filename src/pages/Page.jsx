@@ -14,7 +14,7 @@ import { db } from "../firebase";
 function Page() {
   let idPost = useParams();
  
-
+  
   const [data, setData] = useState([]);
   const [liked, setLiked] = useState([]);
   const [id, setId] = useState([]);
@@ -75,7 +75,7 @@ function Page() {
     fetchData();
   }, [data?.category]);
 
-  // console.log(id);
+  
   // console.log(liked);
 
   // console.log(data?.time?.slice(0, 16));
@@ -89,7 +89,7 @@ function Page() {
         <div className="w-full  h-[40vh] ">
           <img
             alt=""
-            src={data?.img}
+            src={ data?.img}
             className="object-cover w-full h-full border-3 rounded-xl"
           />
         </div>
@@ -98,7 +98,7 @@ function Page() {
             <Link to={"/"}>
               <img
                 alt=""
-                src="https://images.unsplash.com/photo-1608501078713-8e445a709b39?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+                src= "https://cdn-icons-png.flaticon.com/512/149/149071.png"
                 className="object-cover w-full h-full border-3 rounded-full"
               />
             </Link>
@@ -130,14 +130,14 @@ function Page() {
                   />
                 </div>
                 <div className="text-2xl font-bold">{e?.title}</div>
-                <Link to={"/blog/" + e?.id}>
-                  <button className="border-2 p-4 border-red-500 hover:border-black hover:font-bold"
                 
+                  <a href={'/blog/' + e?.id} className="border-2 p-4 border-red-500 hover:border-black hover:font-bold"
+
                   id={e?.id}
                   >
                     Read More
-                  </button>
-                </Link>
+                  </a>
+              
               </div>
             </>
           );
